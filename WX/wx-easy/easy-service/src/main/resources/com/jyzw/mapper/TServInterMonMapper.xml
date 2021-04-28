@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jyzw.mapper.TServInterMonMapper">
+    <resultMap id="baseMap" type="com.jyzw.entity.TServiceInterfaceMonitorTB">
+        <id     property="simId"        column="sim_id"/>
+        <result property="typeCode"     column="type_code"/>
+        <result property="typeName"     column="type_name"/>
+        <result property="serviceCode"  column="service_code"/>
+        <result property="serviceName"  column="service_name"/>
+        <result property="adapterName"  column="adapter_name"/>
+        <result property="classsName"   column="classs_name"/>
+        <result property="state"        column="state"/>
+        <result property="returnBody"   column="return_body"/>
+        <result property="processingTime"  column="processing_time"/>
+    </resultMap>
+    <parameterMap id="baseMap1" type="com.jyzw.entity.TServiceInterfaceMonitorTB">
+        <parameter property="simId"           resultMap="baseMap"/>
+        <parameter property="typeCode"        resultMap="baseMap"/>
+        <parameter property="typeName"        resultMap="baseMap"/>
+        <parameter property="serviceCode"     resultMap="baseMap"/>
+        <parameter property="serviceName"      resultMap="baseMap"/>
+        <parameter property="adapterName"      resultMap="baseMap"/>
+        <parameter property="classsName"       resultMap="baseMap"/>
+        <parameter property="state"            resultMap="baseMap"/>
+        <parameter property="returnBody"       resultMap="baseMap"/>
+        <parameter property="processingTime"    resultMap="baseMap"/>
+    </parameterMap>
+    <select id="getList" resultMap="baseMap">
+        select * from t_service_interface_monitor
+    </select>
+    <select id="getOne" resultMap="baseMap" parameterType="String">
+        select * from t_service_interface_monitor where sim_id=#{simId}
+    </select>
+    <select id="getByTJ" resultMap="baseMap" parameterMap="baseMap1">
+        select * from t_service_interface_monitor where 1=1  and (type_code like '%${typeCode}%' or #{typeCode} is null or #{typeCode} ='' )
+and (type_name like '%${typeName}%'  or #{typeName} =''  or #{typeName} is null) and (service_code like '%${serviceCode}%' or #{serviceCode} is null or #{serviceCode} ='')
+and (service_name like '%${serviceName}%'  or #{serviceName}  is null or #{serviceName} ='') and (`state`=#{state} or #{state} =''  or #{state} is null)
+    </select>
+    <insert id="save" parameterMap="baseMap1">
+        insert into t_service_interface_monitor values(#{simId},#{typeCode},#{typeName},#{serviceCode},#{serviceName}
+        ,#{adapterName},#{classsName},#{state},#{returnBody},#{processingTime})
+    </insert>
+    <update id="updateOne" parameterMap="baseMap1">
+        update t_service_interface_monitor set type_code=#{typeCode},type_name=#{typeName},service_code=#{serviceCode},service_name=#{serviceName},adapter_name=#{adapterName},classs_name=#{classsName},
+`state`=#{state},return_body=#{returnBody},processing_time=#{processingTime}  where sim_id =#{simId}
+    </update>
+    <delete id="delOne" parameterType="String" >
+        delete from t_service_interface_monitor where sim_id=#{simId}
+    </delete>
+</mapper>

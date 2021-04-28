@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jyzw.mapper.YwkeyWordMapper">
+    <resultMap id="baseMap" type="com.jyzw.entity.YwKeyWord">
+        <id     property="ykwId"     column="ykw_id"/>
+        <result property="userId"    column="user_id"/>
+        <result property="userName"  column="user_name"/>
+        <result property="type"      column="type"/>
+        <result property="keyWord"   column="key_word"/>
+        <result property="content"    column="content"/>
+        <result property="wxWcId"     column="wx_wcId"/>
+        <result property="isDel"      column="isDel"/>
+
+    </resultMap>
+    <parameterMap id="baseMap1" type="com.jyzw.entity.YwKeyWord">
+        <parameter property="ykwId"     resultMap="baseMap"/>
+        <parameter property="userId"    resultMap="baseMap"/>
+        <parameter property="userName"   resultMap="baseMap"/>
+        <parameter property="type"    resultMap="baseMap"/>
+        <parameter property="keyWord" resultMap="baseMap"/>
+        <parameter property="content"    resultMap="baseMap"/>
+        <parameter property="wxWcId"     resultMap="baseMap"/>
+        <parameter property="isDel"      resultMap="baseMap"/>
+    </parameterMap>
+    <select id="getList" resultMap="baseMap">
+        select * from yw_key_word
+    </select>
+     <select id="getOne" resultMap="baseMap">
+         select * from yw_key_word where ykw_id=#{ykwId}
+     </select>
+    <select id="getListByTJ" resultMap="baseMap">
+        select * from yw_key_word where 1=1 and (user_name like '%${userName}%' or #{userName} is null or #{userName} ='') and (`type`=#{type}  or #{type} =''  or #{type} is null)
+and (isDel=#{isDel} or #{isDel} ='' or #{isDel} is null ) and (key_word like '%${keyWord}%'  or #{keyWord} is null or  #{keyWord} ='')
+</select>
+    <insert id="saveOne" parameterMap="baseMap1">
+        insert into yw_key_word values(#{ykwId},#{userId},#{userName},#{type},#{keyWord},#{content},#{wxWcId},#{isDel})
+    </insert>
+    <update id="updateOne" parameterMap="baseMap1">
+        update yw_key_word set user_id=#{userId},user_name=#{userName},`type`=#{type},key_word=#{keyWord},
+                               content=#{content},wx_wcId=#{wxWcId},isDel=#{isDel}  where ykw_id=#{ykwId}
+    </update>
+    <delete id="delOne" parameterType="String">
+        delete from yw_key_word where ykw_id=#{ykwId}
+    </delete>
+</mapper>

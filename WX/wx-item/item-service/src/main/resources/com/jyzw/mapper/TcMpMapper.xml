@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jyzw.mapper.TcMpMapper">
+    <resultMap id="baseMap" type="com.jyzw.entity.TcMp">
+        <id     property="mpId" column="mp_id"/>
+        <result property="mpNo" column="mp_no"/>
+        <result property="mpName" column="mp_name"/>
+        <result property="mpAddr"   column="mp_addr"/>
+        <result property="tgId"   column="tg_id"/>
+        <result property="consId"    column="cons_id"/>
+        
+    </resultMap>
+    <parameterMap id="baseMap1" type="com.jyzw.entity.TcMp">
+        <parameter property="mpId"  resultMap="baseMap"/>
+        <parameter property="mpNo"  resultMap="baseMap"/>
+        <parameter property="mpName" resultMap="baseMap"/>
+        <parameter property="mpAddr"   resultMap="baseMap"/>
+        <parameter property="tgId"    resultMap="baseMap"/>
+        <parameter property="consId"    resultMap="baseMap"/>
+    </parameterMap>
+    <select id="getOne" parameterType="String" resultMap="baseMap">
+        select * from t_c_mp where mp_id=#{mpId}
+    </select>
+    <select id="getList"  resultMap="baseMap">
+        select * from t_c_mp
+    </select>
+    <select id="getByTJ" parameterMap="baseMap1" resultMap="baseMap">
+        select * from t_c_mp where 1=1 and (mp_no like '%${mpNo}%'  or #{mpNo} is null or #{mpNo} ='' )and
+                                   (mp_name like '%${mpName}%' or #{mpName} is null or #{mpName} ='' )and
+                                   (mp_addr like '%${mpAddr}%'  or #{mpAddr} is null or #{mpAddr} ='')
+    </select>
+    <insert id="save" parameterMap="baseMap1">
+        insert into t_c_mp values(#{mpId},#{mpNo},#{mpName},#{mpAddr},#{tgId},#{consId})
+    </insert>
+    <update id="update" parameterMap="baseMap1">
+        update t_c_mp set mp_no=#{mpNo},mp_name=#{mpName},mp_addr=#{mpAddr},tg_id=#{tgId},cons_id=#{consId}
+        where mp_id=#{mpId}
+    </update>
+    <delete id="delOne" parameterType="String">
+        delete from t_c_mp where mp_id=#{mpId}
+    </delete>
+</mapper>

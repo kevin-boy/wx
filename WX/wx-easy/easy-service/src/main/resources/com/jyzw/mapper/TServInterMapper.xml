@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jyzw.mapper.TServInterMapper">
+    <resultMap id="baseMap" type="com.jyzw.entity.TServiceInterfaceTB">
+        <id     property="siId"        column="si_id"/>
+        <result property="typeCode"    column="type_code"/>
+        <result property="typeName"    column="type_name"/>
+        <result property="serviceCode"  column="service_code"/>
+        <result property="serviceName"  column="service_name"/>
+        <result property="isSyn"        column="isSyn"/>
+        <result property="state"         column="state"/>
+        <result property="adapterName"  column="adapter_name"/>
+        <result property="classsName"   column="classs_name"/>
+        <result property="returnBody"   column="return_body"/>
+        <result property="isWrite"      column="is_write"/>
+        <result property="isDel"        column="isDel"/>
+        <result property="grade"        column="grade"/>
+        <result property="data"         column="data"/>
+        <result property="createrDate"   column="creater_date"/>
+        <result property="explain"        column="explain"/>
+    </resultMap>
+    <parameterMap id="baseMap1" type="com.jyzw.entity.TServiceInterfaceTB">
+        <parameter property="siId"          resultMap="baseMap"/>
+        <parameter property="typeCode"      resultMap="baseMap"/>
+        <parameter property="typeName"      resultMap="baseMap"/>
+        <parameter property="serviceCode"   resultMap="baseMap"/>
+        <parameter property="serviceName"    resultMap="baseMap"/>
+        <parameter property="isSyn"          resultMap="baseMap"/>
+        <parameter property="state"          resultMap="baseMap"/>
+        <parameter property="adapterName"    resultMap="baseMap"/>
+        <parameter property="classsName"     resultMap="baseMap"/>
+        <parameter property="returnBody"     resultMap="baseMap"/>
+        <parameter property="isWrite"       resultMap="baseMap"/>
+        <parameter property="isDel"        resultMap="baseMap"/>
+        <parameter property="grade"        resultMap="baseMap"/>
+        <parameter property="data"         resultMap="baseMap"/>
+        <parameter property="createrDate"  resultMap="baseMap"/>
+        <parameter property="explain"      resultMap="baseMap"/>
+
+    </parameterMap>
+    <select id="getList" resultMap="baseMap">
+        select * from t_service_interface
+    </select>
+    <select id="getOne" parameterType="String" resultMap="baseMap">
+        select * from t_service_interface where si_id=#{siId}
+    </select>
+    <select id="getListByTJ" parameterMap="baseMap1" resultMap="baseMap">
+        select * from t_service_interface where 1=1 and (type_code like '%${typeCode}%' or #{typeCode} is null or #{typeCode} ='') and
+                                                (type_name like '%${typeName}%'  or #{typeName} is null or #{typeName} ='') and
+                                                (service_code like '%${serviceCode}%' or #{serviceCode} =''  or #{serviceCode} is null)
+      and(service_name like '%${serviceName}%' or #{serviceName} is null or #{serviceName} ='') and(isDel = #{isDel}  or #{isDel}='' or #{isDel} is null )
+      and(creater_date like '%${createrDate}%'  or #{createrDate} is null or #{createrDate} ='')
+    </select>
+    <insert id="save" parameterMap="baseMap1">
+        insert into t_service_interface  values(#{siId},#{typeCode},#{typeName},#{serviceCode},#{serviceName},#{isSyn},
+                                                #{state},#{adapterName},#{classsName},#{returnBody},#{isWrite},#{isDel},#{grade},#{data},
+                                                #{createrDate},#{explain})
+    </insert>
+    <update id="update" parameterMap="baseMap1">
+        update t_service_interface set type_code=#{typeCode},type_name=#{typeName},service_code=#{serviceCode},service_name=#{serviceName},isSyn=#{isSyn},`state`=#{state},
+                                       adapter_name=#{adapterName},classs_name=#{classsName},return_body=#{returnBody},
+                                       is_write=#{isWrite},isDel=#{isDel},grade=#{grade},`data`=#{data},creater_date=#{createrDate},`explain`=#{explain}
+                                       where si_id=#{siId}
+    </update>
+    <delete id="delOne" parameterType="String">
+        delete from t_service_interface where si_id=#{siId}
+    </delete>
+</mapper>

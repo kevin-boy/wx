@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jyzw.mapper.TNoticeMapper">
+    <resultMap id="baseMap" type="com.jyzw.entity.TNotice">
+        <id     property="noticeId"  column="notice_id"/>
+        <result property="type"      column="type"/>
+        <result property="title"     column="title"/>
+        <result property="content"    column="content"/>
+        <result property="createrId"  column="creater_id"/>
+        <result property="userName"   column="user_name"/>
+        <result property="createrDate" column="creater_date"/>
+        <result property="isDel"       column="isDel"/>
+        <result property="endDate"      column="end_date"/>
+    </resultMap>
+    <parameterMap id="baseMap1" type="com.jyzw.entity.TNotice">
+        <parameter property="noticeId"    resultMap="baseMap"/>
+        <parameter property="type"         resultMap="baseMap"/>
+        <parameter property="title"        resultMap="baseMap"/>
+        <parameter property="content"      resultMap="baseMap"/>
+        <parameter property="createrId"    resultMap="baseMap"/>
+        <parameter property="userName"     resultMap="baseMap"/>
+        <parameter property="createrDate"   resultMap="baseMap"/>
+        <parameter property="isDel"         resultMap="baseMap"/>
+        <parameter property="endDate"     resultMap="baseMap"/>
+    </parameterMap>
+    <select id="getList"  resultMap="baseMap">
+        select * from t_notice
+    </select>
+    <select id="getOne" parameterType="String" resultMap="baseMap">
+        select * from t_notice where notice_id=#{noticeId}
+    </select>
+    <select id="getTNList" parameterType="com.jyzw.entity.TNotice" resultMap="baseMap">
+        select  * from t_notice where 1=1 and (title like '%${title}%' or #{title}  is null  or #{title}='')
+                                  and (user_name like '%${userName}%'  or #{userName} is null  or #{userName} ='')  and
+                                      (creater_date like '%${createrDate}%'  or #{createrDate}  is null or #{createrDate} ='')
+                                  and  (end_date  like  '%${endDate}%'  or #{endDate} is null or #{endDate} ='')
+    </select>
+    <delete id="delOne" parameterType="String" >
+        delete from t_notice where notice_id=#{noticeId}
+    </delete>
+    <insert id="save" parameterMap="baseMap1" >
+        insert into t_notice values(#{noticeId},#{type},#{title},#{content},#{createrId},#{userName},
+                                    #{createrDate},#{isDel},#{endDate})
+    </insert>
+    <update id="update" parameterMap="baseMap1" >
+        update t_notice set `type`=#{type},title=#{title},content=#{content},
+                            creater_id=#{createrId},user_name=#{userName},
+                            creater_date=#{createrDate},isDel=#{isDel},end_date=#{endDate} where notice_id=#{noticeId}
+    </update>
+</mapper>

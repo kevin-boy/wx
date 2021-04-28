@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jyzw.mapper.TDataErectMapper">
+    <resultMap id="baseMap" type="com.jyzw.entity.TDataErect">
+        <id     property="erectId"   column="erect_id"/>
+        <result property="dName"   column="d_name"/>
+        <result property="dCode"   column="d_code"/>
+        <result property="dValue"    column="d_value"/>
+        <result property="pid"    column="pid"/>
+        <result property="grade"    column="grade"/>
+        <result property="explain"    column="explain"/>
+        <result property="isDel"     column="isDel"/>
+    </resultMap>
+    <parameterMap id="baseMap1" type="com.jyzw.entity.TDataErect">
+        <parameter property="erectId" resultMap="baseMap"/>
+        <parameter property="dName"  resultMap="baseMap"/>
+        <parameter property="dCode"  resultMap="baseMap"/>
+        <parameter property="dValue"  resultMap="baseMap"/>
+        <parameter property="pid"  resultMap="baseMap"/>
+        <parameter property="grade"  resultMap="baseMap"/>
+        <parameter property="explain"   resultMap="baseMap"/>
+        <parameter property="isDel"   resultMap="baseMap"/>
+    </parameterMap>
+    <select id="getList"  resultMap="baseMap">
+        select * from t_data_erect
+    </select>
+    <select id="getOne" parameterType="String" resultMap="baseMap">
+        select * from t_data_erect where erect_id=#{erectId}
+    </select>
+    <select id="getDEList" parameterType="com.jyzw.entity.TDataErect" resultMap="baseMap">
+        select * from t_data_erect where 1=1 and (d_name like '%${dName}%' or #{dName}  is null or #{dName}='')
+                                     and (d_code like '%${dCode}%' or #{dCode}  is null or #{dCode}='')
+    </select>
+    <delete id="delone" parameterType="String" >
+        delete from t_data_erect where erect_id=#{erectId}
+    </delete>
+    <insert id="saveOne" parameterMap="baseMap1" >
+        insert into t_data_erect values(#{erectId},#{dName},#{dCode},#{dValue},#{pid},#{grade},#{explain},#{isDel})
+    </insert>
+    <update id="updateOne" parameterMap="baseMap1" >
+        update t_data_erect set d_name=#{dName},d_code=#{dCode},d_value=#{dValue},pid=#{pid},grade=#{grade},`explain`=#{explain},
+                                isDel=#{isDel} where erect_id=#{erectId}
+    </update>
+</mapper>

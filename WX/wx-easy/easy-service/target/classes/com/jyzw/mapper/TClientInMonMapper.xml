@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jyzw.mapper.TClientInMonMapper">
+    <resultMap id="baseMap" type="com.jyzw.entity.TClientIntMonTB">
+        <id     property="cimId"         column="cim_id"/>
+        <result property="typeCode"      column="type_code"/>
+        <result property="typeName"      column="type_name"/>
+        <result property="interfaceCode"  column="interface_code"/>
+        <result property="interfaceName"  column="interface_name"/>
+        <result property="adapterName"   column="adapter_name"/>
+        <result property="classsName"    column="classs_name"/>
+        <result property="state"          column="state"/>
+        <result property="requestBody"   column="request_body"/>
+        <result property="returnBody"     column="return_body"/>
+        <result property="processingTime"   column="processing_time"/>
+
+    </resultMap>
+    <parameterMap id="baseMap1" type="com.jyzw.entity.TClientIntMonTB">
+        <parameter property="cimId"           resultMap="baseMap"/>
+        <parameter property="typeCode"        resultMap="baseMap"/>
+        <parameter property="typeName"        resultMap="baseMap"/>
+        <parameter property="interfaceCode"   resultMap="baseMap"/>
+        <parameter property="interfaceName"    resultMap="baseMap"/>
+        <parameter property="adapterName"      resultMap="baseMap"/>
+        <parameter property="classsName"       resultMap="baseMap"/>
+        <parameter property="state"            resultMap="baseMap"/>
+        <parameter property="requestBody"      resultMap="baseMap"/>
+        <parameter property="returnBody"       resultMap="baseMap"/>
+        <parameter property="processingTime"   resultMap="baseMap"/>
+    </parameterMap>
+    <select id="getList" resultMap="baseMap">
+        select * from t_client_interface_monitor
+    </select>
+    <select id="getOne" resultMap="baseMap">
+        select * from t_client_interface_monitor where cim_id=#{cimId}
+    </select>
+    <select id="getByTj" resultMap="baseMap">
+        select * from t_client_interface_monitor  where 1=1 and (type_code like '%${typeCode}%' or #{typeCode} is null or #{typeCode}='' )
+and (type_name like '%${typeName}%'  or #{typeName} is null  or #{typeName} ='')  and (interface_code like '%${interfaceCode}%'  or #{interfaceCode} is null or
+  #{interfaceCode}='') and (interface_name like '%${interfaceName}%'  or #{interfaceName} is null or #{interfaceName}='') and (adapter_name like '%${adapterName}%' or #{adapterName} is  null or #{adapterName}='')
+and (`state`=#{state}  or #{state} is null or #{state}='' )
+    </select>
+   <insert id="save" parameterMap="baseMap1">
+       insert into t_client_interface_monitor values(#{cimId},#{typeCode},#{typeName},#{interfaceCode},#{interfaceName},#{adapterName},#{classsName},#{state},#{requestBody},#{returnBody},#{processingTime})
+   </insert>
+    <update  id="update" parameterMap="baseMap1">
+        update t_client_interface_monitor set type_code=#{typeCode},type_name=#{typeName},interface_code=#{interfaceCode},interface_name=#{interfaceName},
+                                              adapter_name=#{adapterName},classs_name=#{classsName},`state`=#{state},request_body=#{requestBody},
+                                              return_body=#{returnBody},processing_time=#{processingTime}  where cim_id=#{cimId}
+    </update>
+    <delete id="delOne" parameterType="String">
+        delete from t_client_interface_monitor where cim_id=#{cimId}
+         </delete>
+</mapper>

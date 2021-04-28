@@ -1,0 +1,29 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: customer-service
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://121.37.187.26:3306/wxrobot
+    username: root
+    password: root
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka,http://127.0.0.1:10087/eureka
+    registry-fetch-interval-seconds: 10
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+mybatis:
+  mapper-locations: classpath:com/jyzw/mapper/*.xml
+  type-aliases-package: com.jyzw.entity
+logging:
+  config:
+    classpath: /logback.xml
+

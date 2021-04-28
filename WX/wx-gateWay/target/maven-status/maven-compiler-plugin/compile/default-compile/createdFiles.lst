@@ -1,0 +1,14 @@
+com\jyzw\shiroConfig\ShiroConfig.class
+com\jyzw\config\JwtProperties$UserTokenproperties.class
+com\jyzw\service\LoginService.class
+com\jyzw\filter\LoginFilter.class
+com\jyzw\config\FilterProperties.class
+com\jyzw\realm\UserRealm.class
+com\jyzw\service\LoginServiceImpl.class
+com\jyzw\web\LoginController.class
+com\jyzw\config\KyCrosConfig.class
+com\jyzw\config\KYentity.class
+com\jyzw\ZuulApplication.class
+com\jyzw\config\AspectConfig.class
+com\jyzw\filter\AuthFilter.class
+com\jyzw\config\JwtProperties.class

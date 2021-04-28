@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jyzw.mapper.TMenuMapper">
+    <insert id="saveOne" parameterMap="baseMap1">
+        insert into t_menu values(#{menuId},#{menuName},#{level},#{link},#{pid},
+                                  #{grade},#{icon},#{isDel},#{createrDate},#{explain})
+    </insert>
+    <select id="getOne" parameterType="String" resultMap="baseMap">
+        select * from t_menu where `level`=2 and pid=#{menuId}
+
+    </select>
+    <select id="getOneCd" parameterType="String" resultMap="baseMap">
+        select * from t_menu where  menu_id=#{menuId}
+
+    </select>
+    <select id="getMenuList" parameterType="String" resultMap="baseMap">
+        select * from t_menu order by `level`,grade
+
+    </select>
+    <select id="getPageMenu" parameterType="com.jyzw.entity.TMenu" resultMap="baseMap">
+        select * from t_menu where 1=1 and  (menu_name  like '%${menuName}%' or #{menuName}  is null or #{menuName} ='')
+                               and (creater_date like '%${createrDate}%' or #{createrDate} is null or #{createrDate} ='') and
+                                   (`level`=#{level} or #{level} is null or #{level} ='')
+
+    </select>
+    <delete id="delOne" parameterType="String" >
+        delete from t_menu where menu_id=#{menuId}
+
+    </delete>
+    <resultMap id="baseMap" type="com.jyzw.entity.TMenu">
+        <id     property="menuId"      column="menu_id"/>
+        <result property="menuName"  column="menu_name"/>
+        <result property="level"  column="level"/>
+        <result property="link"  column="link"/>
+        <result property="pid"  column="pid"/>
+        <result property="grade"  column="grade"/>
+        <result property="icon"  column="icon"/>
+        <result property="isDel"  column="isDel"/>
+        <result property="createrDate"  column="creater_date"/>
+        <result property="explain"  column="explain"/>
+    </resultMap>
+    <parameterMap id="baseMap1" type="com.jyzw.entity.TMenu">
+        <parameter    property="menuId"      resultMap="baseMap"/>
+        <parameter property="menuName"  resultMap="baseMap"/>
+        <parameter property="level"  resultMap="baseMap"/>
+        <parameter property="link"  resultMap="baseMap"/>
+        <parameter property="pid"  resultMap="baseMap"/>
+        <parameter property="grade"  resultMap="baseMap"/>
+        <parameter property="icon"  resultMap="baseMap"/>
+        <parameter property="isDel"  resultMap="baseMap"/>
+        <parameter property="createrDate"  resultMap="baseMap"/>
+        <parameter property="explain"  resultMap="baseMap"/>
+    </parameterMap>
+    <update id="updateOne" parameterMap="baseMap1">
+        update t_menu set menu_name=#{menuName},`level`=#{level},link=#{link},pid=#{pid},grade=#{grade},icon=#{icon},isDel=#{isDel},creater_date=#{createrDate},`explain`=#{explain} where menu_id=#{menuId}
+    </update>
+</mapper>

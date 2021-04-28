@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jyzw.mapper.TRoleMenuMapper">
+    <select id="getList"  resultMap="baseMap">
+        select * from t_role_menu
+    </select>
+    <select id="getOne" parameterType="String" resultMap="baseMap">
+        select * from t_role_menu where rm_id=#{rmId}
+    </select>
+    <select id="delOne"  parameterType="String">
+        delete from t_role_menu where rm_id=#{rmId}
+    </select>
+    <select id="getTRList"  parameterType="com.jyzw.entity.TRoleMenu" resultMap="baseMap">
+        select * from t_role_menu where 1=1 and (role_name like '%${roleName}%'  or #{roleName} =''  or #{roleName} is null )
+                                                and (menu_name like '%${menuName}%'  or #{menuName}  ='' or #{menuName} is null)
+                                                and (creater_date like '%${createrDate}%' or #{createrDate}  is null  or #{createrDate}= '')
+    </select>
+    <insert id="saveOne"  parameterMap="baseMap1">
+        insert into t_role_menu values(#{rmId},#{roleId},#{roleName},#{menuId},#{menuName},#{createrDate},#{explain})
+    </insert>
+    <update id="updateOne"  parameterMap="baseMap1">
+        update t_role_menu set role_id=#{roleId},role_name=#{roleName},menu_id=#{menuId},
+                               menu_name=#{menuName},creater_date=#{createrDate},`explain`=#{explain}     where rm_id=#{rmId}
+   </update>
+    <resultMap id="baseMap" type="com.jyzw.entity.TRoleMenu">
+        <id     property="rmId" column="rm_id"/>
+        <result property="roleId" column="role_id"/>
+        <result property="roleName"  column="role_name"/>
+        <result property="menuId" column="menu_id"/>
+        <result property="menuName"  column="menu_name"/>
+        <result property="createrDate"   column="creater_date"/>
+        <result property="explain" column="explain"/>
+    </resultMap>
+    <parameterMap id="baseMap1" type="com.jyzw.entity.TRoleMenu">
+        <parameter property="rmId"  resultMap="baseMap"/>
+        <parameter property="roleId"    resultMap="baseMap"/>
+        <parameter property="roleName"    resultMap="baseMap"/>
+        <parameter property="menuId"  resultMap="baseMap"/>
+        <parameter property="menuName"    resultMap="baseMap"/>
+        <parameter property="createrDate"  resultMap="baseMap"/>
+        <parameter property="explain"  resultMap="baseMap"/>
+    </parameterMap>
+    <select id="getTMByRid"  parameterType="String" resultMap="baseMap">
+        select * from  t_role_menu where  role_id=#{roleId}
+    </select>
+</mapper>

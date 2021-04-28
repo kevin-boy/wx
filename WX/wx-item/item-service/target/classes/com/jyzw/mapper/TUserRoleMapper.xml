@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jyzw.mapper.TUserRoleMapper">
+    <select id="getList" parameterType="String" resultMap="baseMap">
+        select * from t_user_role
+    </select>
+    <select id="getOne" parameterType="String" resultMap="baseMap">
+        select * from t_user_role where ur_id=#{urId}
+    </select>
+    <select id="getUR" parameterType="String" resultMap="baseMap">
+        select * from t_user_role where user_id=#{userId}
+    </select>
+    <!--<select id="saveList" parameterType="com.jyzw.entity.TUserRole" resultMap="baseMap">
+        select * from t_user_role where user_id=#{userId}
+    </select>-->
+    <select id="getTRList" parameterType="com.jyzw.entity.TUserRole" resultMap="baseMap">
+        select * from t_user_role where 1=1 and (user_name  like '%${userName}%' or #{userName} is null or #{userName} ='')
+                                                and (role_name like '%${roleName}%' or #{roleName} =''  or #{roleName} is null)
+                                                 and(creater_date like '%${createrDate}%' or #{createrDate} =''  or #{createrDate} is null)
+    </select>
+    <delete id="delOne" parameterType="String" >
+        delete from t_user_role where ur_id=#{urId}
+    </delete>
+    <delete id="delur" parameterMap="baseMap1" >
+        delete from t_user_role where user_id=#{userId} and role_id=#{roleId}
+    </delete>
+    <insert id="save" parameterMap="baseMap1">
+        insert into t_user_role values(#{urId},#{userId},#{userName},#{roleId},#{roleName},#{createrDate},#{explain})
+    </insert>
+    <update id="update" parameterMap="baseMap1">
+        update t_user_role set user_id=#{userId},user_name=#{userName},role_id=#{roleId},role_name=#{roleName},creater_date=#{createrDate},`explain`=#{explain}   where ur_id=#{urId}
+    </update>
+    <resultMap id="baseMap" type="com.jyzw.entity.TUserRole">
+        <id     property="urId"  column="ur_id"/>
+        <result property="userId"  column="user_id"/>
+        <result property="userName"  column="user_name"/>
+        <result property="roleId"  column="role_id"/>
+        <result property="roleName"  column="role_name"/>
+        <result property="createrDate"  column="creater_date"/>
+        <result property="explain"  column="explain"/>
+    </resultMap>
+    <parameterMap id="baseMap1" type="com.jyzw.entity.TUserRole">
+        <parameter property="urId"      resultMap="baseMap"/>
+        <parameter property="userId"      resultMap="baseMap"/>
+        <parameter property="userName"  resultMap="baseMap"/>
+        <parameter property="roleId"    resultMap="baseMap"/>
+        <parameter property="roleName"  resultMap="baseMap"/>
+        <parameter property="createrDate"  resultMap="baseMap"/>
+        <parameter property="explain"  resultMap="baseMap"/>
+    </parameterMap>
+</mapper>

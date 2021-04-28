@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="af394528-1806-4926-a6da-c8a751ff9f5d" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="Aspect" />
+      </list>
+    </option>
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="JRebelWorkspace">
+    <option name="jrebelEnabledAutocompile" value="true" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="E:\maven\maven_repos" />
+        <option name="userSettingsFile" value="E:\development\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="ProjectId" id="1q5riUSkjOHrMZYOTmFqtdggyKA" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="sortByType" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mySb" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.3908873" />
+    <property name="settings.editor.selected.configurable" value="com.zeroturnaround.javarebel.idea.plugin.settings.JRebelSettingsComponent" />
+  </component>
+  <component name="RebelAgentSelection">
+    <selection>jr</selection>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\workDemo\WX\wx-customer\customer-service\src\main\resources" />
+      <recent name="E:\workDemo\WX\wx-easy\easy-service\src\main\resources" />
+      <recent name="E:\workDemo\WX\wx-item\item-service\src\main\resources" />
+      <recent name="E:\workDemo\WX\wx-common\src\main\java\com\jyzw\util" />
+      <recent name="E:\workDemo\jyzw\common\src\main\java\com\jyzw\util" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\workDemo\WX\wx-customer\customer-service\src\main\resources\com\jyzw\mapper" />
+      <recent name="E:\workDemo\jyzw\easy-interface\easy-service\src\main\resources\com\jyzw\mapper" />
+      <recent name="E:\workDemo\jyzw\jyzw-item\item-pojo\src\main\resources\com\jyzw\mapper" />
+      <recent name="E:\workDemo\jyzw\consumer\consumer-service\src\main\resources" />
+      <recent name="E:\workDemo\jyzw\provider\provider-service\src\main\resources" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.jyzw.mapper" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.jyzw.config" />
+      <recent name="com.jyzw.entity" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ZuulApplication">
+    <configuration name="MyTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wx-gateWay" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jyzw.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jyzw.test" />
+      <option name="MAIN_CLASS_NAME" value="com.jyzw.test.MyTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test.test3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="item-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jyzw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jyzw" />
+      <option name="MAIN_CLASS_NAME" value="com.jyzw.Test" />
+      <option name="METHOD_NAME" value="test3" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wx-common" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com" />
+      <option name="MAIN_CLASS_NAME" value="com.test" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.test3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wx-common" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com" />
+      <option name="MAIN_CLASS_NAME" value="com.test" />
+      <option name="METHOD_NAME" value="test3" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppEureka (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="wx-eureka" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jyzw.AppEureka" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppEureka" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="wx-eureka" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jyzw.AppEureka" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppEureka2 (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="wx-eureka2" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jyzw.AppEureka2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppEureka2" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="wx-eureka2" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jyzw.AppEureka2" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="wx-auth" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jyzw.AuthApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConsumerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="consumer-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jyzw.ConsumerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="customer-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jyzw.CustomerApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EasyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="easy-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jyzw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jyzw.EasyApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="provider-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jyzw.FApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ItemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="item-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jyzw.ItemApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JyzwApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="WX" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jyzw.JyzwApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="WX" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jyzw.MyApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZuulApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="wx-gateWay" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jyzw.ZuulApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZuulApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="wx-gateWay" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jyzw.ZuulApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.MyTest.test" />
+      <item itemvalue="JUnit.test.test" />
+      <item itemvalue="JUnit.Test.test3" />
+      <item itemvalue="JUnit.test.test3" />
+      <item itemvalue="Spring Boot.AppEureka" />
+      <item itemvalue="Spring Boot.AppEureka (1)" />
+      <item itemvalue="Spring Boot.AppEureka2" />
+      <item itemvalue="Spring Boot.AppEureka2 (1)" />
+      <item itemvalue="Spring Boot.AuthApplication" />
+      <item itemvalue="Spring Boot.ConsumerApplication" />
+      <item itemvalue="Spring Boot.CustomerApplication" />
+      <item itemvalue="Spring Boot.FApplication" />
+      <item itemvalue="Spring Boot.ItemApplication" />
+      <item itemvalue="Spring Boot.JyzwApplication" />
+      <item itemvalue="Spring Boot.MyApplication" />
+      <item itemvalue="Spring Boot.ZuulApplication" />
+      <item itemvalue="Spring Boot.ZuulApplication (1)" />
+      <item itemvalue="Spring Boot.EasyApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.EasyApplication" />
+        <item itemvalue="JUnit.Test.test3" />
+        <item itemvalue="JUnit.MyTest.test" />
+        <item itemvalue="JUnit.test.test" />
+        <item itemvalue="JUnit.test.test3" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="af394528-1806-4926-a6da-c8a751ff9f5d" name="Default Changelist" comment="" />
+      <created>1616380419184</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1616380419184</updated>
+      <workItem from="1616380420366" duration="2076000" />
+      <workItem from="1616384628603" duration="14747000" />
+      <workItem from="1616462426940" duration="7563000" />
+      <workItem from="1616470089465" duration="4912000" />
+      <workItem from="1616480099783" duration="9986000" />
+      <workItem from="1616548554872" duration="14316000" />
+      <workItem from="1616593845837" duration="1791000" />
+      <workItem from="1616634950000" duration="1890000" />
+      <workItem from="1616636989549" duration="22995000" />
+      <workItem from="1616666689861" duration="2023000" />
+      <workItem from="1616985957528" duration="1390000" />
+      <workItem from="1616988464560" duration="4757000" />
+      <workItem from="1617003813211" duration="4150000" />
+      <workItem from="1617008395715" duration="2800000" />
+      <workItem from="1617011523607" duration="1458000" />
+      <workItem from="1617013005888" duration="45000" />
+      <workItem from="1617017405335" duration="1349000" />
+      <workItem from="1617066387420" duration="3773000" />
+      <workItem from="1617070275257" duration="23062000" />
+      <workItem from="1617152685808" duration="24550000" />
+      <workItem from="1617238970657" duration="24582000" />
+      <workItem from="1617325793036" duration="22612000" />
+      <workItem from="1617425198638" duration="930000" />
+      <workItem from="1617515496878" duration="14000" />
+      <workItem from="1617672561919" duration="4983000" />
+      <workItem from="1617677843181" duration="4115000" />
+      <workItem from="1617682218996" duration="1976000" />
+      <workItem from="1617688642198" duration="15574000" />
+      <workItem from="1617710532565" duration="2360000" />
+      <workItem from="1617756837272" duration="17911000" />
+      <workItem from="1617783478138" duration="7555000" />
+      <workItem from="1617791328605" duration="3349000" />
+      <workItem from="1617844008416" duration="24131000" />
+      <workItem from="1617930190796" duration="1340000" />
+      <workItem from="1617931986452" duration="6233000" />
+      <workItem from="1617938633304" duration="12684000" />
+      <workItem from="1617959998380" duration="41000" />
+      <workItem from="1617960042123" duration="2835000" />
+      <workItem from="1617968672101" duration="3699000" />
+      <workItem from="1618028266315" duration="300000" />
+      <workItem from="1618051333112" duration="10000" />
+      <workItem from="1618051352620" duration="590000" />
+      <workItem from="1618052036008" duration="112000" />
+      <workItem from="1618052158513" duration="165000" />
+      <workItem from="1618052338011" duration="47000" />
+      <workItem from="1618052394879" duration="121000" />
+      <workItem from="1618052527226" duration="53000" />
+      <workItem from="1618052589721" duration="685000" />
+      <workItem from="1618053722226" duration="107000" />
+      <workItem from="1618053865160" duration="36000" />
+      <workItem from="1618053911846" duration="193000" />
+      <workItem from="1618054116666" duration="216000" />
+      <workItem from="1618054346694" duration="4915000" />
+      <workItem from="1618059307753" duration="309000" />
+      <workItem from="1618059631337" duration="314000" />
+      <workItem from="1618059957635" duration="187000" />
+      <workItem from="1618060156251" duration="399000" />
+      <workItem from="1618060561625" duration="228000" />
+      <workItem from="1618060802229" duration="104000" />
+      <workItem from="1618060913132" duration="1000" />
+      <workItem from="1618060943855" duration="1271000" />
+      <workItem from="1618107224182" duration="2635000" />
+      <workItem from="1618109885703" duration="3824000" />
+      <workItem from="1618149121960" duration="1303000" />
+      <workItem from="1618150749629" duration="170000" />
+      <workItem from="1618190366839" duration="27492000" />
+      <workItem from="1618276294624" duration="28817000" />
+      <workItem from="1618362516595" duration="18035000" />
+      <workItem from="1618388656753" duration="10567000" />
+      <workItem from="1618404022467" duration="1606000" />
+      <workItem from="1618448850846" duration="31397000" />
+      <workItem from="1618534663960" duration="30286000" />
+      <workItem from="1618573767204" duration="1191000" />
+      <workItem from="1618626309484" duration="522000" />
+      <workItem from="1618723960433" duration="11751000" />
+      <workItem from="1618794811674" duration="14451000" />
+      <workItem from="1618881515946" duration="5117000" />
+      <workItem from="1618900997786" duration="471000" />
+      <workItem from="1618901482347" duration="320000" />
+      <workItem from="1618901995569" duration="596000" />
+      <workItem from="1618902607179" duration="2565000" />
+      <workItem from="1618968349653" duration="672000" />
+      <workItem from="1618971421752" duration="1531000" />
+      <workItem from="1618977572340" duration="1199000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/wx-gateWay/src/main/java/com/jyzw/filter/AuthFilter.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/wx-gateWay/src/main/java/com/jyzw/filter/AuthFilter.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

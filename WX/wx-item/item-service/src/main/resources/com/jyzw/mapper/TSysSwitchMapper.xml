@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jyzw.mapper.TSysSwithMapper">
+    <resultMap id="baseMap" type="com.jyzw.entity.TSysSwitch">
+        <id     property="tssId"     column="tss_id"/>
+        <result property="switchCode" column="switch_code"/>
+        <result property="switchName" column="switch_name"/>
+        <result property="switchValue"   column="switch_value"/>
+        <result property="explain"      column="explain"/>
+
+    </resultMap>
+    <parameterMap id="baseMap1" type="com.jyzw.entity.TSysSwitch">
+        <parameter property="tssId"      resultMap="baseMap"/>
+        <parameter property="switchCode"  resultMap="baseMap"/>
+        <parameter property="switchName"  resultMap="baseMap"/>
+        <parameter property="switchValue"  resultMap="baseMap"/>
+        <parameter property="explain"   resultMap="baseMap"/>
+
+
+    </parameterMap>
+    <select id="getList"  resultMap="baseMap">
+        select * from t_sys_switch
+    </select>
+    <select id="getOne" parameterType="String" resultMap="baseMap">
+        select * from t_sys_switch where tss_id=#{tssId}
+    </select>
+    <select id="getTSList" parameterType="com.jyzw.entity.TSysSwitch" resultMap="baseMap">
+        select * from t_sys_switch where 1=1 and (switch_name  like '%${switchName}%'  or #{switchName}=''  or #{switchName} is null)
+    </select>
+    <delete id="delOne" parameterType="String" >
+        delete from t_sys_switch where tss_id=#{tssId}
+    </delete>
+    <insert id="saveOne" parameterMap="baseMap1" >
+        insert into t_sys_switch values(#{tssId},#{switchCode},#{switchName},#{switchValue},#{explain})
+    </insert>
+    <update id="updateOne" parameterMap="baseMap1" >
+        update t_sys_switch set switch_code=#{switchCode},switch_name=#{switchName},switch_value=#{switchValue},`explain`=#{explain}
+        where tss_id=#{tssId}
+    </update>
+</mapper>

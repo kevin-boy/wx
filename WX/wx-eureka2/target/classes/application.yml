@@ -1,0 +1,17 @@
+server:
+  port: 10087
+spring:
+  application:
+    name:  jyzw-eureka2
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://121.37.187.26:3306/wxrobot
+    username: root
+    password: root
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://127.0.0.1:10087/eureka
+

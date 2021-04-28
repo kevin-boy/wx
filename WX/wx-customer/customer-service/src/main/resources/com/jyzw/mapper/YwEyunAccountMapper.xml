@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jyzw.mapper.YwEyunAccountMapper">
+    <resultMap id="baseMap" type="com.jyzw.entity.YwEyunAccount">
+        <id     property="yweaId"          column="ywea_id"/>
+        <result property="eyLoginUrl"      column="ey_login_url"/>
+        <result property="eyAccount"       column="ey_account"/>
+        <result property="eyPassword"      column="ey_password"/>
+        <result property="eyAuthorization" column="ey_authorization"/>
+        <result property="eyApiUrl"        column="ey_api_url"/>
+        <result property="createrDate"     column="creater_date"/>
+        <result property="isDel"           column="isDel"/>
+
+    </resultMap>
+    <parameterMap id="baseMap1" type="com.jyzw.entity.YwEyunAccount">
+        <parameter property="yweaId"           resultMap="baseMap"/>
+        <parameter property="eyLoginUrl"       resultMap="baseMap"/>
+        <parameter property="eyAccount"        resultMap="baseMap"/>
+        <parameter property="eyPassword"     resultMap="baseMap"/>
+        <parameter property="eyAuthorization" resultMap="baseMap"/>
+        <parameter property="eyApiUrl"          resultMap="baseMap"/>
+        <parameter property="createrDate"       resultMap="baseMap"/>
+        <parameter property="isDel"             resultMap="baseMap"/>
+    </parameterMap>
+    <select id="getList" resultMap="baseMap">
+        select * from yw_eyun_account
+    </select>
+    <select id="getOne" resultMap="baseMap" parameterType="String">
+        select * from yw_eyun_account where ywea_id=#{yweaId}
+    </select>
+    <insert id="saveOne" parameterMap="baseMap1">
+        insert into yw_eyun_account values(#{yweaId},#{eyLoginUrl},#{eyAccount},#{eyPassword},#{eyAuthorization},#{eyApiUrl},
+                                           #{createrDate},#{isDel})
+    </insert>
+    <update id="updateone" parameterMap="baseMap1">
+        update yw_eyun_account set ey_login_url=#{eyLoginUrl},ey_account=#{eyAccount} ,ey_password=#{eyPassword},
+                                   ey_authorization=#{eyAuthorization},ey_api_url=#{eyApiUrl},creater_date=#{createrDate},
+                                   isDel=#{isDel} where ywea_id=#{yweaId}
+    </update>
+    <delete id="delOne" parameterType="String">
+        delete from yw_eyun_account where ywea_id=#{yweaId}
+    </delete>
+    <select id="getListByTJ" parameterMap="baseMap1" resultMap="baseMap">
+        select * from yw_eyun_account where 1=1 and (ey_account like '%${eyAccount}%' or #{eyAccount}=''  or #{eyAccount} is null)
+ and  (creater_date like '%${createrDate}%'  or #{createrDate} is null  or #{createrDate}  ='') and ( isDel=#{isDel} or #{isDel}=''  or #{isDel} is null)
+    </select>
+</mapper>

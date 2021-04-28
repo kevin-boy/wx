@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jyzw.mapper.TgTgMapper">
+    <resultMap id="baseMap" type="com.jyzw.entity.TgTg">
+        <id     property="tgId"      column="tg_id"/>
+        <result property="orgNo"     column="org_no"/>
+        <result property="tgNo"      column="tg_no"/>
+        <result property="tgName"      column="tg_name"/>
+        <result property="tgCap"       column="tg_cap"/>
+        <result property="instAddr"     column="inst_addr"/>
+        <result property="chgDate"     column="chg_date"/>
+        <result property="pubPrivFlag"      column="pub_priv_flag"/>
+        <result property="runStatusCode"   column="run_status_code"/>
+        <result property="explain"         column="explain"/>
+    </resultMap>
+    <parameterMap id="baseMap1" type="com.jyzw.entity.TgTg">
+        <parameter property="tgId"    resultMap="baseMap"/>
+        <parameter property="orgNo"   resultMap="baseMap"/>
+        <parameter property="tgNo"    resultMap="baseMap"/>
+        <parameter property="tgName"    resultMap="baseMap"/>
+        <parameter property="tgCap"     resultMap="baseMap"/>
+        <parameter property="instAddr"    resultMap="baseMap"/>
+        <parameter property="chgDate"    resultMap="baseMap"/>
+        <parameter property="pubPrivFlag" resultMap="baseMap"/>
+        <parameter property="runStatusCode"     resultMap="baseMap"/>
+        <parameter property="explain"    resultMap="baseMap"/>
+    </parameterMap>
+    <select id="getByTj" parameterMap="baseMap1" resultMap="baseMap">
+        select *  from t_g_tg where 1=1 and (tg_no like '%${tgNo}%'  or #{tgNo}  is null  or #{tgNo}='') and
+                                    (tg_name like '%${tgName}%'  or #{tgName}  is null or #{tgName}='' )
+                                and (inst_addr like '%${instAddr}%' or #{instAddr} is null or #{instAddr}='' )
+                                and (chg_date like  '%${chgDate}%'  or #{chgDate}  is null or #{chgDate} ='')
+    </select>
+    <select id="getList" resultMap="baseMap">
+        select *  from t_g_tg
+    </select>
+    <select id="getOne" resultMap="baseMap">
+        select *  from t_g_tg where tg_id=#{tgId}
+    </select>
+    <delete id="delOne" parameterType="String">
+        delete from t_g_tg where tg_id=#{tgId}
+    </delete>
+    <insert id="save" parameterMap="baseMap1">
+        insert into t_g_tg values(#{tgId},#{orgNo},#{tgNo},#{tgName},#{tgCap},
+                                  #{instAddr},#{chgDate},#{pubPrivFlag},#{runStatusCode},#{explain});
+    </insert>
+    <update id="update" parameterMap="baseMap1">
+        update t_g_tg set org_no=#{orgNo},tg_no=#{tgNo},tg_name=#{tgName},tg_cap=#{tgCap},inst_addr=#{instAddr},
+                          chg_date=#{chgDate},pub_priv_flag=#{pubPrivFlag},run_status_code=#{runStatusCode},
+                          `explain`=#{explain}  where tg_id=#{tgId}
+    </update>
+</mapper>

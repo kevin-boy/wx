@@ -1,0 +1,29 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jyzw.mapper.UserAuthorizeMapper">
+    <resultMap id="baseMap" type="com.jyzw.entity.YwUserAuthorize">
+        <id     property="yuaId"      column="yua_id"/>
+        <result property="userId"      column="user_id"/>
+        <result property="userName"    column="user_name"/>
+        <result property="grantUserId"    column="grant_user_id"/>
+        <result property="grantUserName"      column="grant_user_name"/>
+        <result property="grantCompanyId"  column="grant_company_id"/>
+        <result property="grantCompanyName"    column="grant_company_name"/>
+
+    </resultMap>
+    <parameterMap id="baseMap1" type="com.jyzw.entity.YwUserAuthorize">
+        <parameter property="yuaId"      resultMap="baseMap"/>
+        <parameter property="userId"      resultMap="baseMap"/>
+        <parameter property="userName"    resultMap="baseMap"/>
+        <parameter property="grantUserId"  resultMap="baseMap"/>
+        <parameter property="grantUserName"     resultMap="baseMap"/>
+        <parameter property="grantCompanyId"   resultMap="baseMap"/>
+        <parameter property="grantCompanyName"     resultMap="baseMap"/>
+    </parameterMap>
+    <select id="getListByTJ" resultMap="baseMap" parameterMap="baseMap1">
+        select *  from yw_user_authorize  where 1=1 and (user_name like '%${userName}%' or #{userName} is null or #{userName} ='' )
+                                            and (grant_user_name like '%${grantUserName}%' or #{grantUserName} is null  or #{grantUserName} ='')
+                                            and (grant_company_name  like '%${grantCompanyName}%'  or #{grantCompanyName} ='' or #{grantCompanyName} is null)
+    </select>
+</mapper>

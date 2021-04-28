@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jyzw.mapper.WxFriendsMapper">
+    <resultMap id="baseMap" type="com.jyzw.entity.WxFriendsTB">
+        <id     property="ywflId"      column="ywfl_id"/>
+        <result property="userId"      column="user_id"/>
+        <result property="typeCode"    column="type_code"/>
+        <result property="typeName"    column="type_name"/>
+        <result property="wxWcId"      column="wx_wcId"/>
+        <result property="wxWAccount"  column="wx_wAccount"/>
+        <result property="userName"    column="userName"/>
+        <result property="nickName"    column="nickName"/>
+        <result property="remark"      column="remark"/>
+        <result property="signature"   column="signature"/>
+        <result property="sex"         column="sex"/>
+        <result property="aliasName"   column="aliasName"/>
+        <result property="country"     column="country"/>
+        <result property="bigHead"     column="bigHead"/>
+        <result property="smallHead"   column="smallHead"/>
+        <result property="labelList"   column="labelList"/>
+        <result property="v1"          column="v1"/>
+        <result property="province"    column="province"/>
+        <result property="city"        column="city"/>
+        <result property="dataJson"    column="data_json"/>
+    </resultMap>
+    <parameterMap id="baseMap1" type="com.jyzw.entity.WxFriendsTB">
+        <parameter property="ywflId"      resultMap="baseMap"/>
+        <parameter property="userId"      resultMap="baseMap"/>
+        <parameter property="typeCode"    resultMap="baseMap"/>
+        <parameter property="typeName"  resultMap="baseMap"/>
+        <parameter property="wxWcId"     resultMap="baseMap"/>
+        <parameter property="wxWAccount"   resultMap="baseMap"/>
+        <parameter property="userName"     resultMap="baseMap"/>
+        <parameter property="nickName"     resultMap="baseMap"/>
+        <parameter property="remark"       resultMap="baseMap"/>
+        <parameter property="signature"    resultMap="baseMap"/>
+        <parameter property="sex"          resultMap="baseMap"/>
+        <parameter property="aliasName"    resultMap="baseMap"/>
+        <parameter property="country"      resultMap="baseMap"/>
+        <parameter property="bigHead"      resultMap="baseMap"/>
+        <parameter property="smallHead"    resultMap="baseMap"/>
+        <parameter property="labelList"    resultMap="baseMap"/>
+        <parameter property="v1"           resultMap="baseMap"/>
+        <parameter property="province"     resultMap="baseMap"/>
+        <parameter property="city"         resultMap="baseMap"/>
+        <parameter property="dataJson"     resultMap="baseMap"/>
+    </parameterMap>
+    <select id="getList" resultMap="baseMap">
+        select * from yw_wx_friends
+    </select>
+    <select id="getListByTJ" resultMap="baseMap" parameterMap="baseMap1">
+        select * from yw_wx_friends where 1=1
+and (userName like '%${userName}%'  or #{userName} is null or #{userName} ='')
+and (nickName like '%${nickName}%' or #{nickName}  is null or #{nickName} ='')
+and (remark like '%${remark}%' or #{remark} is null or #{remark} ='')
+    </select>
+    <select id="getOne" resultMap="baseMap" parameterType="String" >
+        select * from yw_wx_friends where ywfl_id=#{ywflId}
+    </select>
+    <insert id="saveOne" parameterMap="baseMap1">
+        insert into yw_wx_friends values(#{ywflId},#{userId},#{typeCode},#{typeName},#{wxWcId},#{wxWAccount},#{userName},
+                                         #{nickName},#{remark},#{signature},#{sex},#{aliasName},#{country},#{bigHead},#{smallHead},
+                                         #{labelList},#{v1},#{province},#{city},#{dataJson})
+    </insert>
+    <update id="updateOne" parameterMap="baseMap1">
+        update yw_wx_friends set user_id=#{userId},type_code=#{typeCode},type_name=#{typeName},wx_wcId=#{wxWcId},
+                                 wx_wAccount=#{wxWAccount},userName=#{userName},nickName=#{nickName},remark=#{remark},
+                                 signature=#{signature}, sex=#{sex},aliasName=#{aliasName},country=#{country},bigHead=#{bigHead}, smallHead=#{smallHead},
+                                 labelList=#{labelList},v1=#{v1},province=#{province},city=#{city},data_json=#{dataJson}
+        where ywfl_id=#{ywflId}
+    </update>
+    <delete id="delOne" parameterType="String">
+        delete from yw_wx_friends where ywfl_id=#{ywflId}
+    </delete>
+</mapper>

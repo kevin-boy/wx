@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jyzw.mapper.TRoleMapper">
+   <!-- <select id="getRolel"  resultMap="baseMap">
+        select * from t_role
+    </select>-->
+    <resultMap id="baseMap" type="com.jyzw.entity.TRole">
+        <id     property="roleId"       column="role_id"/>
+        <result property="roleName"     column="role_name"/>
+        <result property="state"        column="state"/>
+        <result property="grade"        column="grade"/>
+        <result property="createrDate"  column="creater_date"/>
+        <result property="explain"      column="explain"/>
+    </resultMap>
+    <parameterMap id="baseMap1" type="com.jyzw.entity.TRole">
+        <parameter property="roleId"         resultMap="baseMap"/>
+        <parameter property="roleName"       resultMap="baseMap"/>
+        <parameter property="state"          resultMap="baseMap"/>
+        <parameter property="grade"          resultMap="baseMap"/>
+        <parameter property="createrDate"    resultMap="baseMap"/>
+        <parameter property="explain"        resultMap="baseMap"/>
+    </parameterMap>
+    <select id="getOne" parameterType="String" resultMap="baseMap">
+        select * from t_role where role_id=#{roleId}
+    </select>
+    <select id="getRoleL"  resultMap="baseMap">
+        select * from t_role
+    </select>
+    <insert id="saveOne" parameterMap="baseMap1">
+        insert into t_role values(#{roleId},#{roleName},#{state},#{grade},#{createrDate},#{explain})
+    </insert>
+    <insert id="updateOne" parameterMap="baseMap1">
+        update t_role set role_name=#{roleName},`state`=#{state},grade=#{grade},
+                          creater_date=#{createrDate},`explain`=#{explain} where role_id=#{roleId}
+    </insert>
+    <delete id="delOne" parameterType="String">
+        delete from t_role where role_id=#{roleId}
+    </delete>
+</mapper>

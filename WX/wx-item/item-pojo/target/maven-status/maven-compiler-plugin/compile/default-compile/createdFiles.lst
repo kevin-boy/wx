@@ -1,0 +1,13 @@
+com\jyzw\entity\ResultInfo.class
+com\jyzw\entity\UserInfo.class
+com\jyzw\entity\TUserRole.class
+com\jyzw\entity\TcMp.class
+com\jyzw\entity\TDataErect.class
+com\jyzw\entity\TOorg.class
+com\jyzw\entity\TMenu.class
+com\jyzw\entity\TRoleMenu.class
+com\jyzw\entity\Tuser.class
+com\jyzw\entity\TSysSwitch.class
+com\jyzw\entity\TgTg.class
+com\jyzw\entity\TRole.class
+com\jyzw\entity\TNotice.class

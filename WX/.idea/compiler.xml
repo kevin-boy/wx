@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="item-pojo" />
+        <module name="wx-common" />
+        <module name="provider-pojo" />
+        <module name="customer-service" />
+        <module name="easy-service" />
+        <module name="wx-auth" />
+        <module name="item-service" />
+        <module name="customer-pojo" />
+        <module name="provider-service" />
+        <module name="consumer-service" />
+        <module name="wx-eureka" />
+        <module name="provider-interface" />
+        <module name="wx-eureka2" />
+        <module name="consumer-pojo" />
+        <module name="item-interface" />
+        <module name="easy-Pojo" />
+        <module name="wx-gateWay" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="consumer" target="8" />
+      <module name="consumer-pojo" target="8" />
+      <module name="consumer-service" target="8" />
+      <module name="customer-pojo" target="8" />
+      <module name="customer-service" target="8" />
+      <module name="easy-Pojo" target="8" />
+      <module name="easy-service" target="8" />
+      <module name="item-interface" target="8" />
+      <module name="item-pojo" target="8" />
+      <module name="item-service" target="8" />
+      <module name="provider" target="8" />
+      <module name="provider-interface" target="8" />
+      <module name="provider-pojo" target="8" />
+      <module name="provider-service" target="8" />
+      <module name="WX" target="8" />
+      <module name="wx-auth" target="8" />
+      <module name="wx-common" target="8" />
+      <module name="wx-customer" target="8" />
+      <module name="wx-easy" target="8" />
+      <module name="wx-eureka" target="8" />
+      <module name="wx-eureka2" target="8" />
+      <module name="wx-gateWay" target="8" />
+      <module name="wx-item" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="consumer-pojo" options="-parameters" />
+      <module name="consumer-service" options="-parameters" />
+      <module name="customer-pojo" options="-parameters" />
+      <module name="customer-service" options="-parameters" />
+      <module name="easy-Pojo" options="-parameters" />
+      <module name="easy-service" options="-parameters" />
+      <module name="item-interface" options="-parameters" />
+      <module name="item-pojo" options="-parameters" />
+      <module name="item-service" options="-parameters" />
+      <module name="provider" options="-parameters" />
+      <module name="provider-interface" options="-parameters" />
+      <module name="provider-pojo" options="-parameters" />
+      <module name="provider-service" options="-parameters" />
+      <module name="wx-auth" options="-parameters" />
+      <module name="wx-common" options="-parameters" />
+      <module name="wx-customer" options="-parameters" />
+      <module name="wx-eureka" options="-parameters" />
+      <module name="wx-eureka2" options="-parameters" />
+      <module name="wx-gateWay" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jyzw.mapper.TOorgMapper">
+    <resultMap id="baseMap" type="com.jyzw.entity.TOorg">
+        <id     property="orgNo"        column="org_no"/>
+        <result property="orgName"      column="org_name"/>
+        <result property="pOrgNo"       column="p_org_no"/>
+        <result property="orgType"      column="org_type"/>
+        <result property="sortNo"       column="sort_no"/>
+        <result property="orgShorthand" column="org_shorthand"/>
+        <result property="orgProperty"  column="org_property"/>
+        <result property="explain"      column="explain"/>
+    </resultMap>
+    <parameterMap id="baseMap1" type="com.jyzw.entity.TOorg">
+        <parameter property="orgNo"          resultMap="baseMap"/>
+        <parameter property="orgName"        resultMap="baseMap"/>
+        <parameter property="pOrgNo"         resultMap="baseMap"/>
+        <parameter property="orgType"        resultMap="baseMap"/>
+        <parameter property="sortNo"         resultMap="baseMap"/>
+        <parameter property="orgShorthand"    resultMap="baseMap"/>
+        <parameter property="orgProperty"    resultMap="baseMap"/>
+        <parameter property="explain"        resultMap="baseMap"/>
+    </parameterMap>
+    <select id="getList"  resultMap="baseMap">
+        select * from  t_o_org
+    </select>
+    <select id="getOne" parameterType="String" resultMap="baseMap">
+        select * from  t_o_org where org_no= #{orgNo}
+    </select>
+    <select id="getTOList" parameterType="com.jyzw.entity.TOorg" resultMap="baseMap">
+        select * from t_o_org where 1=1 and (org_name like '%${orgName}%'  or #{orgName} is null or #{orgName} = '')
+                                and (org_type =#{orgType}  or #{orgType}  is null or #{orgType} ='')
+    </select>
+    <delete id="delOne" parameterType="String" >
+        delete from t_o_org where org_no=#{orgNo}
+    </delete>
+    <insert id="saveOne" parameterMap="baseMap1" >
+        insert into t_o_org values(#{orgNo},#{orgName},#{pOrgNo},#{orgType},#{sortNo},#{orgShorthand},
+                                   #{orgProperty},#{explain})
+    </insert>
+    <update id="updateOne" parameterMap="baseMap1" >
+        update t_o_org set org_name=#{orgName} ,p_org_no=#{pOrgNo},org_type=#{orgType},sort_no=#{sortNo},
+                           org_shorthand=#{orgShorthand},org_property= #{orgProperty},`explain`=#{explain}
+                           where  org_no=#{orgNo}
+    </update>
+</mapper>

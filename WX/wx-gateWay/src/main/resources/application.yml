@@ -1,0 +1,67 @@
+server:
+  port: 10010
+spring:
+  application:
+    name: wx-zuul
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://121.37.187.26:3306/wxrobot
+    username: root
+    password: root
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka,http://127.0.0.1:10087/eureka
+    register-fetch-interval-seconds: 10
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
+ribbon:
+  ConnectTimeout: 5000 # ribbon链接超时时长
+  ReadTimeout: 5000 # ribbon读取超时时长
+  MaxAutoRetries: 0  # 当前服务重试次数
+  MaxAutoRetriesNextServer: 1 # 切换服务重试次数
+  OkToRetryOnAllOperations: false # 是否对所有的请求方式都重试，只对get请求重试
+  eureka:
+    enabled: false
+zuul:
+  routes:
+    item-service: /item/**
+    consumer-service: /consumer/**
+    easy-service: /easy/**
+    auth-service: /auth/**
+    customer-service: /customer/**
+  #sensitive-headers:
+item-service:
+  ribbon:
+    listOfServers: http://localhost:8087
+customer-service:
+   ribbon:
+     listOfServers: http://localhost:8086
+#auth:
+#  jwt:
+#    pubkeypath: D:\\public
+#    user:
+#      cookieName: wx_token
+#wx:
+#  filter:
+#    allowedPath:
+#     - http://121.37.187.26:8089/login.call#
+#     - /auth/loginDo
+feign:
+  hystrix:
+    enabled: true
+logging:
+  #pattern:
+   # console:
+  config:
+    classpath: /logback.xml
+
+

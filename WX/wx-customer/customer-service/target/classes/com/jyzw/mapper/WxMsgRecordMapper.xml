@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jyzw.mapper.WxMsgRecordMapper">
+    <resultMap id="baseMap" type="com.jyzw.entity.WxMsgRecord">
+        <id     property="ywmrId"          column="ywmr_id"/>
+        <result property="msgData"         column="msg_data"/>
+        <result property="createrDate"     column="creater_date"/>
+        <result property="httpUrl"         column="httpUrl"/>
+        <result property="account"         column="account"/>
+        <result property="dataContent"     column="data_content"/>
+        <result property="dataFromGroup"   column="data_fromGroup"/>
+        <result property="dataFromUser"    column="data_fromUser"/>
+        <result property="dataMsgId"       column="data_msgId"/>
+        <result property="dataNewMsgId"    column="data_newMsgId"/>
+        <result property="dataSelf"        column="data_self"/>
+        <result property="dataTimeStamp"   column="data_timestamp"/>
+        <result property="dataToUser"      column="data_toUser"/>
+        <result property="dataWId"         column="data_wId"/>
+        <result property="messageType"     column="messageType"/>
+
+    </resultMap>
+    <parameterMap id="baseMap1" type="com.jyzw.entity.WxMsgRecord">
+        <parameter property="ywmrId"         resultMap="baseMap"/>
+        <parameter property="msgData"        resultMap="baseMap"/>
+        <parameter property="createrDate"    resultMap="baseMap"/>
+        <parameter property="httpUrl"      resultMap="baseMap"/>
+        <parameter property="account"       resultMap="baseMap"/>
+        <parameter property="dataContent"     resultMap="baseMap"/>
+        <parameter property="dataFromGroup"   resultMap="baseMap"/>
+        <parameter property="dataFromUser"    resultMap="baseMap"/>
+        <parameter property="dataMsgId"       resultMap="baseMap"/>
+        <parameter property="dataNewMsgId"    resultMap="baseMap"/>
+        <parameter property="dataSelf"        resultMap="baseMap"/>
+        <parameter property="dataTimeStamp"   resultMap="baseMap"/>
+        <parameter property="dataToUser"      resultMap="baseMap"/>
+        <parameter property="dataWId"         resultMap="baseMap"/>
+        <parameter property="messageType"     resultMap="baseMap"/>
+    </parameterMap>
+    <select id="queryListByTJ" parameterMap="baseMap1" resultMap="baseMap">
+        select * from yw_wx_msg_record where 1=1 and (creater_date like '%${createrDate}%' or #{createrDate} is  null or #{createrDate} ='')
+                                         and (account like '%${account}%'  or #{account} =''  or #{account} is null)
+                                         and (messageType= #{messageType} or #{messageType} ='' or #{messageType} is null)
+                                         and  (data_wId like '%${dataWId}%' or #{dataWId} ='' or #{dataWId} is null)
+                                         and (data_self=#{dataSelf} or #{dataSelf}='' or #{dataSelf} is null)
+    </select>
+</mapper>

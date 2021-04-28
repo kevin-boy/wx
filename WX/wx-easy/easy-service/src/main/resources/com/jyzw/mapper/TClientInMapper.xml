@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jyzw.mapper.TClientInMapper">
+    <resultMap id="baseMap" type="com.jyzw.entity.TClientInTB">
+        <id     property="ciId"           column="ci_id"/>
+        <result property="typeCode"       column="type_code"/>
+        <result property="typeName"       column="type_name"/>
+        <result property="interfaceCode"  column="interface_code"/>
+        <result property="interfaceName"  column="interface_name"/>
+        <result property="isSyn"          column="isSyn"/>
+        <result property="state"          column="state"/>
+        <result property="adapterName"    column="adapter_name"/>
+        <result property="classNameB"     column="class_nameb"/>
+        <result property="requestBody"    column="request_body"/>
+        <result property="curl"           column="curl"/>
+        <result property="method"         column="method"/>
+        <result property="returnBody"     column="return_body"/>
+        <result property="isWrite"        column="is_write"/>
+        <result property="overTime"       column="overtime"/>
+        <result property="isDel"          column="isDel"/>
+        <result property="grade"          column="grade"/>
+        <result property="data"           column="data"/>
+        <result property="createrDate"    column="creater_date"/>
+        <result property="explain"        column="explain"/>
+    </resultMap>
+    <parameterMap id="baseMap1" type="com.jyzw.entity.TClientInTB">
+        <parameter property="ciId"           resultMap="baseMap"/>
+        <parameter property="typeCode"       resultMap="baseMap"/>
+        <parameter property="typeName"       resultMap="baseMap"/>
+        <parameter property="interfaceCode"  resultMap="baseMap"/>
+        <parameter property="interfaceName"   resultMap="baseMap"/>
+        <parameter property="isSyn"           resultMap="baseMap"/>
+        <parameter property="state"           resultMap="baseMap"/>
+        <parameter property="adapterName"     resultMap="baseMap"/>
+        <parameter property="classNameB"      resultMap="baseMap"/>
+        <parameter property="requestBody"     resultMap="baseMap"/>
+        <parameter property="curl"            resultMap="baseMap"/>
+        <parameter property="method"          resultMap="baseMap"/>
+        <parameter property="returnBody"      resultMap="baseMap"/>
+        <parameter property="isWrite"         resultMap="baseMap"/>
+        <parameter property="overTime"        resultMap="baseMap"/>
+        <parameter property="isDel"           resultMap="baseMap"/>
+        <parameter property="grade"           resultMap="baseMap"/>
+        <parameter property="data"            resultMap="baseMap"/>
+        <parameter property="createrDate"     resultMap="baseMap"/>
+        <parameter property="explain"         resultMap="baseMap"/>
+    </parameterMap>
+    <select id="getList" resultMap="baseMap">
+        select * from t_client_interface
+    </select>
+    <select id="getOne"  parameterType="String" resultMap="baseMap">
+        select * from t_client_interface where ci_id=#{ciId}
+    </select>
+    <select id="getByTJ"  parameterType="String" resultMap="baseMap">
+        select * from t_client_interface where  1=1 and
+                                               (type_code like '%${typeCode}%' or #{typeCode} is null or #{typeCode}='') and
+                                               (interface_code like '%${interfaceCode}%' or #{interfaceCode} is null or #{interfaceCode}='') and
+                                               (type_name like '%${typeName}%' or #{typeName} is null or #{typeName} ='' )and
+                                               (interface_name  like '%${interfaceName}%'  or #{interfaceName} is null or #{interfaceName}='')and
+                                               (isSyn = #{isSyn} or #{isSyn} is null or #{isSyn} ='' ) and
+                                               (adapter_name like '%${adapterName}' or #{adapterName} is null or #{adapterName}='')
+                                                and  (`method` like '%${method}%' or #{method} is null or #{method}='')
+                                                and (isDel =#{isDel} or #{isDel} is null or #{isDel}='')
+    </select>
+    <insert id="save" parameterMap="baseMap1">
+        insert into t_client_interface values(#{ciId},#{typeCode},#{typeName},#{interfaceCode},#{interfaceName},#{isSyn},#{state},#{adapterName},
+                                              #{classNameB},#{requestBody},#{curl},#{method},#{returnBody},#{isWrite},#{overTime},#{isDel},#{grade},#{data},
+                                              #{createrDate},#{explain})
+    </insert>
+    <update id="update" parameterMap="baseMap1">
+        update t_client_interface set type_code=#{typeCode},type_name=#{typeName},interface_code=#{interfaceCode},interface_name=#{interfaceName},isSyn=#{isSyn},
+                                      `state`=#{state},adapter_name=#{adapterName},class_nameb=#{classNameB},request_body=#{requestBody},curl=#{curl},`method`=#{method},
+                                      return_body=#{returnBody},is_write=#{isWrite},overtime=#{overTime},isDel=#{isDel},grade=#{grade},
+                                      `data`=#{data},creater_date=#{createrDate},`explain`=#{explain}   where ci_id=#{ciId}
+    </update>
+    <delete id="delOne" parameterType="String">
+        delete from t_client_interface where ci_id=#{ciId}
+    </delete>
+</mapper>

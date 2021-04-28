@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jyzw.mapper.YwReplyRecordMapper">
+    <resultMap id="baseMap" type="com.jyzw.entity.YwReplayRecord">
+        <id     property="ycrId"        column="ycr_id"/>
+        <result property="keyWord"      column="key_word"/>
+        <result property="chatData"     column="chat_data"/>
+        <result property="replyContent"  column="reply_content"/>
+        <result property="createrDate"    column="creater_date"/>
+        <result property="wxWAccount"     column="wx_wAccount"/>
+        <result property="wxNickName"       column="wx_nickName"/>
+        <result property="wxSmallHeadImgUrl"   column="wx_smallHeadImgUrl"/>
+        <result property="wxChatRoom"     column="wx_chatroom"/>
+        <result property="account"        column="account"/>
+        <result property="messageType"     column="messageType"/>
+        <result property="wcId"           column="wcId"/>
+        <result property="dataWId"        column="data_wId"/>
+        <result property="dataFromUser"    column="data_fromUser"/>
+        <result property="dataFromGroup"   column="data_fromGroup"/>
+        <result property="dataToUser"      column="data_toUser"/>
+        <result property="dataMsgId"       column="data_msgId"/>
+        <result property="dataNewMsgId"       column="data_newMsgId"/>
+        <result property="dataMsgType"     column="data_msgType"/>
+        <result property="dataTimeStamp"   column="data_timestamp"/>
+        <result property="dataContent"     column="data_content"/>
+        <result property="dataSelf"        column="data_self"/>
+        <result property="dataContent1"    column="data_content1"/>
+    </resultMap>
+    <parameterMap id="baseMap1" type="com.jyzw.entity.YwReplayRecord">
+        <parameter property="ycrId"           resultMap="baseMap"/>
+        <parameter property="keyWord"         resultMap="baseMap"/>
+        <parameter property="chatData"        resultMap="baseMap"/>
+        <parameter property="replyContent"    resultMap="baseMap"/>
+        <parameter property="createrDate"     resultMap="baseMap"/>
+        <parameter property="wxWAccount"      resultMap="baseMap"/>
+        <parameter property="wxNickName"      resultMap="baseMap"/>
+        <parameter property="wxSmallHeadImgUrl"   resultMap="baseMap"/>
+        <parameter property="wxChatRoom"      resultMap="baseMap"/>
+        <parameter property="account"         resultMap="baseMap"/>
+        <parameter property="messageType"     resultMap="baseMap"/>
+        <parameter property="wcId"            resultMap="baseMap"/>
+        <parameter property="dataWId"         resultMap="baseMap"/>
+        <parameter property="dataFromUser"    resultMap="baseMap"/>
+        <parameter property="dataFromGroup"   resultMap="baseMap"/>
+        <parameter property="dataToUser"      resultMap="baseMap"/>
+        <parameter property="dataMsgId"       resultMap="baseMap"/>
+        <parameter property="dataNewMsgId"       resultMap="baseMap"/>
+        <parameter property="dataMsgType"     resultMap="baseMap"/>
+        <parameter property="dataTimeStamp"   resultMap="baseMap"/>
+        <parameter property="dataContent"     resultMap="baseMap"/>
+        <parameter property="dataSelf"        resultMap="baseMap"/>
+        <parameter property="dataContent1"    resultMap="baseMap"/>
+    </parameterMap>
+    <select id="getList" resultMap="baseMap" >
+        select * from yw_chat_reply_record
+    </select>
+    <select id="getOne" resultMap="baseMap" parameterType="String">
+        select * from yw_chat_reply_record where ycr_id=#{ycrId}
+    </select>
+    <select id="getListByTJ" parameterMap="baseMap1" resultMap="baseMap">
+        select * from yw_chat_reply_record where 1=1 and  (creater_date like '%${createrDate}%' or #{createrDate} ='' or #{createrDate} ='')
+                                             and (wx_nickName like '%${wxNickName}%' or #{wxNickName} ='' or #{wxNickName} is null )    and
+                                                 (wcId like '%${wcId}%'  or #{wcId} is null or #{wcId} ='') and
+                                                 (data_self=#{dataSelf}  or #{dataSelf} ='' or #{dataSelf}  is null) and
+                                                 (messageType=#{messageType} or #{messageType} ='' or #{messageType} is null )
+    </select>
+    <insert id="saveOne" parameterMap="baseMap1">
+        insert into yw_chat_reply_record values(#{ycrId},#{keyWord},#{chatData},#{replyContent},#{createrDate},#{wxWAccount},
+                                                #{wxNickName},#{wxSmallHeadImgUrl},#{wxChatRoom},#{account},#{messageType},#{wcId},
+                                                #{dataWId},#{dataFromUser},#{dataFromGroup},#{dataToUser},#{dataMsgId},#{dataNewMsgId},#{dataMsgType},
+                                                #{dataTimeStamp},#{dataContent},#{dataSelf},#{dataContent1})
+    </insert>
+    <update id="updateOne" parameterMap="baseMap1">
+        update yw_chat_reply_record set key_word=#{keyWord},chat_data=#{chatData},reply_content=#{replyContent},creater_date=#{createrDate},
+                                        wx_wAccount=#{wxWAccount},wx_nickName=#{wxNickName},
+                                        wx_smallHeadImgUrl=#{wxSmallHeadImgUrl},wx_chatroom=#{wxChatRoom},account=#{account},messageType=#{messageType},
+                                        wcId=#{wcId},data_wid=#{dataWId},data_fromUser=#{dataFromUser},data_fromGroup=#{dataFromGroup},
+                                        data_toUser=#{dataToUser},data_msgId=#{dataMsgId},data_msgType=#{dataMsgType},data_timestamp=#{dataTimeStamp},
+                                        data_content=#{dataContent},data_self=#{dataSelf},data_content1=#{dataContent1},data_newMsgId=#{dataNewMsgId}  where ycr_id=#{ycrId}
+    </update>
+    <delete id="delone" parameterType="String">
+        delete from yw_chat_reply_record where ycr_id=#{ycrId}
+    </delete>
+</mapper>
